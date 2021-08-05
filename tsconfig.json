@@ -31,6 +31,15 @@
     "paths": {
       "@components/*": [
         "./src/components/*"
+      ],
+      "@models/*": [
+        "./src/models/*"
+      ],
+      "@modules/*": [
+        "./src/modules/*"
+      ],
+      "@slices/*": [
+        "./src/slices/*"
       ]
     }
   }
