@@ -1,7 +1,7 @@
 import { NormalizedUserModel } from '@models/user';
 import { createEntityAdapter, createSelector, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '@store';
-import { getUsersAsync, SLICE_USER_NAME } from './actions';
+import { getUsersAsync, USER_SLICE_NAME } from './actions';
 
 const adapter = createEntityAdapter<NormalizedUserModel>();
 const initialState = adapter.getInitialState({
@@ -9,7 +9,7 @@ const initialState = adapter.getInitialState({
 });
 
 export const { reducer: userReducer } = createSlice({
-    name: SLICE_USER_NAME,
+    name: USER_SLICE_NAME,
     initialState,
     reducers: {},
     extraReducers(builder) {

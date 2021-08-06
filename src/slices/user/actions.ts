@@ -10,14 +10,14 @@ interface NormalizedUserResponse {
     comments: Record<string, CommentModel>;
 }
 
-export const SLICE_USER_NAME = 'users';
+export const USER_SLICE_NAME = 'users';
 
 const comments = [new schema.Entity('comments')];
 const movies = [new schema.Entity('movies', { comments })];
 const users = [new schema.Entity('users', { movies })];
 
 export const getUsersAsync = createAsyncThunk(
-    `${SLICE_USER_NAME}/getUsersAsync`,
+    `${USER_SLICE_NAME}/getUsersAsync`,
     async () => {
         const response = await fetch('/users.json');
 
