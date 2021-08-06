@@ -40,6 +40,9 @@
       ],
       "@slices/*": [
         "./src/slices/*"
+      ],
+      "@store": [
+        "./src/store"
       ]
     }
   }

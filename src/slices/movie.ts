@@ -1,20 +1,21 @@
-import { MovieModel } from '@models/movie';
-import { createSlice } from '@reduxjs/toolkit';
+import { NormalizedMovieModel } from '@models/movie';
+import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import { getUsersAsync } from './user';
 
-export interface MovieState {
-    entities: Record<number, MovieModel>;
-    ids: number[];
-}
-
-const initialState: MovieState = {
-    entities: {},
-    ids: []
-};
+const adapter = createEntityAdapter<NormalizedMovieModel>();
+const initialState = adapter.getInitialState({
+    loading: false
+});
 
 export const movieSlice = createSlice({
     name: 'movie',
     initialState,
-    reducers: {}
+    reducers: {},
+    extraReducers(builder) {
+        builder.addCase(getUsersAsync.fulfilled, (state, action) => {
+            adapter.upsertMany(state, action.payload.movies);
+        });
+    }
 });
 
 export default movieSlice.reducer;

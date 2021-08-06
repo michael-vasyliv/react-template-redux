@@ -6,3 +6,7 @@ export interface UserModel {
     lastName: string;
     movies: MovieModel[];
 }
+
+export interface NormalizedUserModel extends Omit<UserModel, 'movies'> {
+    movies: string[]
+}

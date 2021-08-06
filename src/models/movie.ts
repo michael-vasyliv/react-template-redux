@@ -6,3 +6,7 @@ export interface MovieModel {
     description: string;
     comments: CommentModel[];
 }
+
+export interface NormalizedMovieModel extends Omit<MovieModel, 'comments'> {
+    commments: string[];
+}

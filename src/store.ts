@@ -1,17 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
-import comment from '@slices/comment';
-import movie from '@slices/movie';
-import user from '@slices/user';
+import comments from '@slices/comment';
+import movies from '@slices/movie';
+import users from '@slices/user';
+import { useDispatch } from 'react-redux';
 
 export const store = configureStore({
     reducer: {
-        comment,
-        movie,
-        user
+        comments,
+        movies,
+        users
     }
 });
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch;
+
+export const useAppDispatch = () => useDispatch<AppDispatch>();

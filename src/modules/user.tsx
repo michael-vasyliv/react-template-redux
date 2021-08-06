@@ -1,13 +1,13 @@
-import { getCurrentUserAsync } from '@slices/user';
+import { getUsersAsync } from '@slices/user';
+import { useAppDispatch } from '@store';
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from 'src/store';
 
 export function User() {
-    const dispatch = useDispatch<AppDispatch>();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(getCurrentUserAsync());
+        const promise = dispatch(getUsersAsync());
+        return () => promise.abort();
     }, []);
 
     return (

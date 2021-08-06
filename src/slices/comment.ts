@@ -1,20 +1,21 @@
 import { CommentModel } from '@models/comment';
-import { createSlice } from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import { getUsersAsync } from './user';
 
-export interface CommentState {
-    entities: Record<number, CommentModel>;
-    ids: number[];
-}
-
-const initialState: CommentState = {
-    entities: {},
-    ids: []
-};
+const adapter = createEntityAdapter<CommentModel>();
+const initialState = adapter.getInitialState({
+    loading: false
+});
 
 export const commentSlice = createSlice({
     name: 'comment',
     initialState,
-    reducers: {}
+    reducers: {},
+    extraReducers(builder) {
+        builder.addCase(getUsersAsync.fulfilled, (state, action) => {
+            adapter.upsertMany(state, action.payload.comments);
+        });
+    }
 });
 
 export default commentSlice.reducer;
