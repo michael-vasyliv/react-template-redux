@@ -1,8 +1,8 @@
-import { getUsersAsync } from '@slices/user';
-import { useAppDispatch } from '@store';
+import { useAppDispatch } from '@features/store';
+import { getUsersAsync } from '@features/users/actions';
 import React, { useEffect } from 'react';
 
-export function User() {
+export function Home() {
     const dispatch = useAppDispatch();
 
     useEffect(() => {

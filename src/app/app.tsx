@@ -1,4 +1,4 @@
-import { User } from '@modules/user';
+import { Home } from '@pages/home';
 import React from 'react';
 import './app.scss';
 import Logo from './logo.svg';
@@ -17,7 +17,7 @@ export function App() {
             >
                 Learn React
             </a>
-            <User />
+            <Home />
         </main>
     );
 }

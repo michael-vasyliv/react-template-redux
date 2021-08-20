@@ -32,21 +32,16 @@
       "@app/*": [
         "./src/app/*"
       ],
-      "@components/*": [
-        "./src/components/*"
+      "@features/*": [
+        "./src/features/*"
       ],
       "@models/*": [
         "./src/models/*"
       ],
-      "@modules/*": [
-        "./src/modules/*"
+      "@pages/*": [
+        "src/pages/*"
       ],
-      "@slices/*": [
-        "./src/slices/*"
-      ],
-      "@store": [
-        "./src/store"
-      ]
+      
     }
   }
 }

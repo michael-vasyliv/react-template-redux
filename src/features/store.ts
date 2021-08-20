@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import comments from '@slices/comment';
-import movies from '@slices/movie';
-import users from '@slices/user';
 import { useDispatch } from 'react-redux';
+import comments from './comments/slice';
+import movies from './movies/slice';
+import users from './users/slice';
 
 export const store = configureStore({
     reducer: {
